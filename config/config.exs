@@ -7,6 +7,9 @@
 # General application configuration
 use Mix.Config
 
+config :payroll_services,
+  ecto_repos: [PayrollServices.Repo]
+
 # Configures the endpoint
 config :hr_portal, HrPortalWeb.Endpoint,
   url: [host: "localhost"],
@@ -25,3 +28,10 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+config :payroll_services, PayrollServices.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "human_resources",
+  hostname: "localhost",
+  pool_size: 10

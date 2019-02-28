@@ -1,0 +1,48 @@
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
+<h1>Listing Employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Annual salary</th>
+      <th>Pension contribution</th>
+      <th>Payment start date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for employee <- @employees do %>
+    <tr>
+      <td><%= employee.first_name %></td>
+      <td><%= employee.last_name %></td>
+      <td><%= employee.annual_salary %></td>
+      <td><%= employee.pension_contribution %></td>
+      <td><%= employee.payment_start_date %></td>
+
+      <td>
+        <%= link "Show", to: Routes.employee_path(@conn, :show, employee) %>
+        <%= link "Edit", to: Routes.employee_path(@conn, :edit, employee) %>
+        <%= link "Delete", to: Routes.employee_path(@conn, :delete, employee), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Employee", to: Routes.employee_path(@conn, :new) %></span>

@@ -1,0 +1,33 @@
+<h1>Show Employee</h1>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @employee.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @employee.last_name %>
+  </li>
+
+  <li>
+    <strong>Annual salary:</strong>
+    <%= @employee.annual_salary %>
+  </li>
+
+  <li>
+    <strong>Pension contribution:</strong>
+    <%= @employee.pension_contribution %>
+  </li>
+
+  <li>
+    <strong>Payment start date:</strong>
+    <%= @employee.payment_start_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.employee_path(@conn, :edit, @employee) %></span>
+<span><%= link "Back", to: Routes.employee_path(@conn, :index) %></span>

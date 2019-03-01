@@ -1,0 +1,5 @@
+<h1>Edit Slip</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.slip_path(@conn, :update, @slip)) %>
+
+<span><%= link "Back", to: Routes.slip_path(@conn, :index) %></span>

@@ -1,0 +1,28 @@
+<h1>Show Slip</h1>
+
+<ul>
+
+  <li>
+    <strong>Employee:</strong>
+    <%= @slip.employee_id %>
+  </li>
+
+  <li>
+    <strong>Pay period:</strong>
+    <%= @slip.pay_period %>
+  </li>
+
+  <li>
+    <strong>Gross income:</strong>
+    <%= @slip.gross_income %>
+  </li>
+
+  <li>
+    <strong>Income tax:</strong>
+    <%= @slip.income_tax %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.slip_path(@conn, :edit, @slip) %></span>
+<span><%= link "Back", to: Routes.slip_path(@conn, :index) %></span>

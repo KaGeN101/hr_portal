@@ -18,6 +18,7 @@ defmodule HrPortalWeb.Router do
 
     get "/", PageController, :index
     resources "/employees", EmployeeController
+    resources "/slips", SlipController
   end
 
   # Other scopes may use custom stacks.

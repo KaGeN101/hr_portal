@@ -1,0 +1,32 @@
+<h1>Listing Slips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Pay period</th>
+      <th>Gross income</th>
+      <th>Income tax</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for slip <- @slips do %>
+    <tr>
+      <td><%= slip.employee_id %></td>
+      <td><%= slip.pay_period %></td>
+      <td><%= slip.gross_income %></td>
+      <td><%= slip.income_tax %></td>
+
+      <td>
+        <%= link "Show", to: Routes.slip_path(@conn, :show, slip) %>
+        <%= link "Edit", to: Routes.slip_path(@conn, :edit, slip) %>
+        <%= link "Delete", to: Routes.slip_path(@conn, :delete, slip), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Slip", to: Routes.slip_path(@conn, :new) %></span>

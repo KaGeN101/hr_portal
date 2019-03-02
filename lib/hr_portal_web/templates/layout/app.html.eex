@@ -12,7 +12,10 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            
+            <%= form_for @conn, Routes.employee_path(@conn, :search), [class: "pull-right"], fn f -> %>
+              <%= search_input f, :query %>
+              <%= submit "Search" %>
+            <% end %>
           </ul>
         </nav>
         <a href="/" class="phx-logo">

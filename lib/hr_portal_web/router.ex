@@ -17,6 +17,8 @@ defmodule HrPortalWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    post "/employees/search", EmployeeController, :search
+
     resources "/employees", EmployeeController
     resources "/slips", SlipController#, only: [:show, :create]
   end

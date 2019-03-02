@@ -8,6 +8,19 @@ defmodule HrPortalWeb.EmployeeController do
     render(conn, "index.html", employees: employees)
   end
 
+  def search(conn, params) do
+    search_term = get_in(params, ["query"])
+    IO.puts inspect(search_term)
+    with results = [_|_] <- Employees.search_employees(search_term) do {:ok, results} 
+        conn
+        |> render("index.html", employees: results)
+    else _ -> 
+        conn
+        |> put_flash(:info, "No matching results found!")
+        |> render("index.html", employees: [])
+    end   
+  end
+
   def new(conn, _params) do
     changeset = Employees.change_employee(%HumanResources.Employee{})
     render(conn, "new.html", changeset: changeset)

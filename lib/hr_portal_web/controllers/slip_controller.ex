@@ -14,7 +14,7 @@ defmodule HrPortalWeb.SlipController do
   end
 
   def create(conn, %{"slip" => slip_params}) do
-    case Salaries.create_slip(slip_params) do
+    case PayrollServices.SalariesServices.create_next_slip(slip_params["employee_id"]) do
       {:ok, slip} ->
         conn
         |> put_flash(:info, "Slip created successfully.")

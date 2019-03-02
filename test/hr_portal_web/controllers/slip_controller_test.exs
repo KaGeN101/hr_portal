@@ -3,8 +3,8 @@ defmodule HrPortalWeb.SlipControllerTest do
 
   alias PayrollServices.Salaries
 
-  @create_attrs %{employee_id: 12, gross_income: 42, income_tax: 42, pay_period: 42}
-  @update_attrs %{employee_id: 13, gross_income: 43, income_tax: 43, pay_period: 43}
+  @create_attrs %{employee_id: 3, gross_income: 42, income_tax: 42, pay_period: 42}
+  @update_attrs %{employee_id: 4, gross_income: 43, income_tax: 43, pay_period: 43}
   @invalid_attrs %{employee_id: nil, gross_income: nil, income_tax: nil, pay_period: nil}
 
   def fixture(:slip) do

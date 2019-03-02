@@ -17,11 +17,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <table>
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Annual salary</th>
-      <th>Pension contribution</th>
-      <th>Payment start date</th>
+      <th nowrap>First name</th>
+      <th nowrap>Last name</th>
+      <th nowrap>Annual salary</th>
+      <th nowrap>Pension contribution</th>
+      <th nowrap>Payment start date</th>
 
       <th></th>
     </tr>
@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
       <td><%= employee.first_name %></td>
       <td><%= employee.last_name %></td>
       <td><%= employee.annual_salary %></td>
-      <td><%= employee.pension_contribution %></td>
+      <td><%= employee.pension_contribution %>%</td>
       <td><%= employee.payment_start_date %></td>
 
       <td>

@@ -31,3 +31,38 @@
 
 <span><%= link "Edit", to: Routes.employee_path(@conn, :edit, @employee) %></span>
 <span><%= link "Back", to: Routes.employee_path(@conn, :index) %></span>
+
+<h1>Listing Payslips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th nowrap>Name</th>
+      <th nowrap>Pay period</th>
+      <th nowrap>Gross income</th>
+      <th nowrap>Income tax</th>
+      <th nowrap>Net Income</th>
+      <th>Pension contibution amount</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for slip <- @employee.slips do %>
+    <tr>
+      <td nowrap><%= "#{@employee.first_name} #{@employee.last_name}" %></td>
+      <td nowrap><%= HumanResources.Slip.pay_period_to_s(slip.pay_period) %></td>
+      <td><%= slip.gross_income %></td>
+      <td><%= slip.income_tax %></td>
+      <td><%= HumanResources.Slip.net_income(slip.gross_income, slip.income_tax) %></td>
+      <td><%= HumanResources.Slip.pension(@employee) %></td>
+
+      <td nowrap>
+        <%= link "Display Slip", to: Routes.slip_path(@conn, :show, slip) %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Payslip", to: Routes.slip_path(@conn, :new) %></span>

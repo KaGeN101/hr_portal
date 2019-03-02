@@ -27,6 +27,7 @@ defmodule HrPortalWeb.EmployeeController do
 
   def show(conn, %{"id" => id}) do
     employee = Employees.get_employee!(id)
+    employee = Employees.preload(employee)
     render(conn, "show.html", employee: employee)
   end
 
@@ -51,7 +52,7 @@ defmodule HrPortalWeb.EmployeeController do
   end
 
   def delete(conn, %{"id" => id}) do
-    employee = Employees.get_employee!(id)
+    employee = Employees.get_employee!(id)      
     {:ok, _employee} = Employees.delete_employee(employee)
 
     conn

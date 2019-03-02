@@ -65,4 +65,4 @@
   </tbody>
 </table>
 
-<span><%= link "New Payslip", to: Routes.slip_path(@conn, :new) %></span>
+<span><%= link "New Payslip", to: Routes.slip_path(@conn, :create, %{"slip" => %{employee_id: @employee.id}}), method: :post %></span>

@@ -18,7 +18,7 @@ defmodule HrPortalWeb.SlipController do
       {:ok, slip} ->
         conn
         |> put_flash(:info, "Slip created successfully.")
-        |> redirect(to: Routes.slip_path(conn, :show, slip))
+        |> redirect(to: Routes.employee_path(conn, :show, slip.employee))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
